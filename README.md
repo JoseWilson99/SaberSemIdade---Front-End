@@ -17,103 +17,128 @@ Plataforma de educação digital focada em habilidades essenciais para o dia a d
 - npm ou yarn
 - VS Code (recomendado)
 
-### Instalação
+---
 
-1. **Clone ou extraia o projeto**
-```bash
-cd saber-sem-idade-frontend-completo
-```
+## 📁 Estrutura de Arquivos do Projeto
 
-2. **Instale as dependências**
-```bash
-npm install
-```
+Abaixo está o mapeamento completo do diretório do sistema conforme a arquitetura implementada:
 
-3. **Instale Tailwind CSS**
-```bash
-npm install -D tailwindcss postcss autoprefixer
-```
-
-4. **Instale dependências adicionais**
-```bash
-npm install wouter axios clsx tailwind-merge
-```
-
-5. **Inicie o servidor de desenvolvimento**
-```bash
-npm run dev
-```
-
-6. **Acesse a aplicação**
-Abra http://localhost:5173/ no navegador
-
-## 📁 Estrutura de Pastas
-
-```
+```text
 saber-sem-idade-frontend-completo/
-├── src/
-│   ├── pages/
-│   │   ├── Home.jsx          # Página inicial
-│   │   └── NotFound.jsx      # Página 404
-│   ├── components/
-│   │   ├── Navbar.jsx        # Barra de navegação
-│   │   ├── Footer.jsx        # Rodapé
-│   │   ├── CourseCard.jsx    # Card de curso
-│   │   └── ui/
-│   │       ├── Button.jsx    # Componente Button
-│   │       └── Card.jsx      # Componente Card
-│   ├── hooks/
-│   │   └── useFetch.js       # Hook para requisições
-│   ├── services/
-│   │   └── api.js            # Configuração Axios
-│   ├── App.jsx               # Componente raiz
-│   ├── App.css               # Estilos adicionais
-│   ├── index.css             # Estilos globais
-│   └── main.jsx              # Entrada React
-├── public/
-│   └── favicon.ico
-├── index.html
-├── package.json
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-└── .gitignore
-```
+├── 📁 node_modules/          # Dependências instaladas do projeto
+├── 📁 public/
+│   └── 📁 imagens/           # Ativos físicos (Logos e placeholders locais)
+├── 📁 src/
+│   ├── 📁 components/        # Componentes globais estruturais
+│   │   ├── 📁 ui/            # Componentes atômicos reutilizáveis de interface
+│   │   │   ├── Button.jsx
+│   │   │   └── Card.jsx
+│   │   ├── CourseCard.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Navbar.jsx
+│   │   └── ScrollToTop.jsx
+│   ├── 📁 context/           # Estados globais compartilhados
+│   │   └── AuthContext.jsx   # Contexto global de autenticação
+│   ├── 📁 hooks/             # Custom Hooks reutilizáveis
+│   │   └── useFetch.js       # Abstração de requisições HTTP
+│   ├── 📁 pages/             # Telas e views da plataforma
+│   │   ├── Cadastro.jsx
+│   │   ├── Contato.jsx
+│   │   ├── CursoAB.jsx
+│   │   ├── CursoHDB.jsx
+│   │   ├── CursoWM.jsx
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Perfil.jsx
+│   │   ├── SobreCurso.jsx
+│   │   └── SobreNos.jsx
+│   ├── 📁 services/          # Configuração de clientes de API
+│   │   └── api.js            # Instância centralizada do Axios/Fetch
+│   ├── App.css               # Estilizações globais complementares
+│   ├── App.jsx               # Roteador central e distribuidor do Context
+│   ├── index.css             # Importação e diretivas do Tailwind CSS
+│   └── main.jsx              # Ponto de entrada do React (DOM Renderer)
+├── .gitignore                # Arquivo de descarte de arquivos para o Git
+├── index.html                # Estrutura HTML primária da Single Page Application
+├── package-lock.json         # Histórico de versões exatas das dependências
+├── package.json              # Manifesto do projeto e scripts de execução
+├── postcss.config.js         # Pré-processador de estilos do CSS
+├── README.md                 # Documentação oficial do repositório
+├── tailwind.config.js        # Configurações de cores e fontes customizadas do Tailwind
+└── vite.config.js            # Configurações do empacotador Vite
 
-## 🎨 Componentes Principais
+---
 
-### Páginas
-- **Home.jsx** - Página inicial com hero section, cards de cursos e CTA
-- **NotFound.jsx** - Página 404 com links de navegação
+## 🗺️ Mapa de Consumo por Página
 
-### Componentes
-- **Navbar.jsx** - Barra de navegação com logo e links
-- **Footer.jsx** - Rodapé com informações e links
-- **CourseCard.jsx** - Card reutilizável para exibir cursos
-- **Button.jsx** - Botão customizável com variantes (primary, secondary, outline, danger)
-- **Card.jsx** - Card genérico reutilizável
+Abaixo está a relação de quais telas disparam requisições HTTP, seus respectivos métodos, payloads e finalidades na regra de negócio.
 
-### Hooks
-- **useFetch.js** - Hook para fazer requisições HTTP com gerenciamento de estado
+### 1. Vitrine e Catálogo (`Home.jsx`)
+* **`GET /cursos`**
+  * **Ação:** Disparada automaticamente na montagem do componente via hook.
+  * **Retorno esperado:** Lista de objetos contendo os cursos cadastrados no banco.
+  * **Tratamento de Falha:** Possui um mecanismo de *fallback* baseado em dados estáticos locais. Se o backend estiver offline, a aplicação continua renderizando os cards perfeitamente.
 
-### Serviços
-- **api.js** - Instância Axios configurada com interceptors para autenticação
+### 2. Fluxo de Autenticação (`Login.jsx` & `Cadastro.jsx`)
+* **`POST /api/usuarios/login`**
+  * **Payload enviado:** ```json
+    { "email": "usuario@email.com", "senha": "saborosatransmissao" }
+    ```
+  * **Ação:** Valida as credenciais. Se o status for `200 OK`, o JSON com os dados do usuário é injetado no estado do `AuthContext` e armazenado no `localStorage`.
+  * **Erros tratados:** Retornos como `401 Unauthorized` ou falhas de rede acionam um modal customizado de erro impedindo o avanço para a rota `/perfil`.
 
-## 🔧 Scripts Disponíveis
+* **`POST /api/usuarios`**
+  * **Payload enviado:** Dados cadastrais do formulário do aluno (Nome, e-mail, senha).
+  * **Ação:** Registra um novo usuário no banco de dados.
 
-```bash
-# Inicia servidor de desenvolvimento
-npm run dev
+### 3. Matrícula e Validação (`SobreCurso.jsx`)
+* **`POST /api/matriculas`**
+  * **Payload enviado:**
+    ```json
+    {
+      "usuario": { "id": 1 },
+      "curso": { "id": 2 },
+      "status": "ATIVO"
+    }
+    ```
+  * **Ação:** Inscreve o aluno logado na trilha de aprendizado correspondente.
+  * **Regra de Negócio Amortecida:** Se o backend rejeitar a requisição por duplicidade (aluno já matriculado), o frontend intercepta o erro, exibe uma notificação amigável de aviso e redireciona o aluno direto para a sala de aula correspondente (`CursoHDB`, `CursoWM` ou `CursoAB`).
 
-# Cria build de produção
-npm run build
+### 4. Painel de Controle do Aluno (`Perfil.jsx`)
+* **`GET /api/matriculas/usuario/{id}`**
+  * **Parâmetro de URL:** `id` do usuário logado recuperado da sessão.
+  * **Ação:** Busca dinamicamente todas as inscrições ativas do usuário para montar a listagem de cards "Minhas Matrículas".
 
-# Visualiza build localmente
-npm run preview
+* **`DELETE /api/matriculas/{matriculaId}`**
+  * **Parâmetro de URL:** `id` único da matrícula gerado pelo banco.
+  * **Ação:** Cancela o vínculo do aluno com o curso.
+  * **Comportamento da Interface:** Em caso de sucesso (`200 OK`), o frontend realiza uma filtragem reativa (`.filter()`) no estado local, sumindo com o card da tela instantaneamente sem dar *reload* na página.
 
-# Executa linter
-npm run lint
-```
+* **`DELETE /api/usuarios/{usuarioId}`**
+  * **Parâmetro de URL:** `id` do usuário logado.
+  * **Ação:** Remove permanentemente o cadastro do usuário do banco de dados.
+  * **Pós-execução:** Dispara a função `logoutGlobal()`, limpa os tokens do `localStorage` e despacha o usuário de volta à página inicial.
+
+---
+
+## 🛠️ Resumo Técnico dos Contratos (Endpoints)
+
+| Método | Endpoint | Origem (Página) | Payload / Parâmetro | Objetivo na Aplicação |
+| :--- | :--- | :--- | :--- | :--- |
+| **GET** | `/cursos` | `Home.jsx` | Nenhum | Carregar os cursos da vitrine principal. |
+| **POST** | `/api/usuarios/login` | `Login.jsx` | `{ email, senha }` | Autenticar usuário e gerar estado global de sessão. |
+| **POST** | `/api/usuarios` | `Cadastro.jsx` | `{ nome, email, senha }` | Criar nova conta de aluno na plataforma. |
+| **POST** | `/api/matriculas` | `SobreCurso.jsx` | `{ usuario, curso, status }` | Registrar o aluno em um curso específico. |
+| **GET** | `/api/matriculas/usuario/{id}` | `Perfil.jsx` | ID do Usuário na URL | Listar as matrículas ativas no painel do aluno. |
+| **DELETE**| `/api/matriculas/{id}` | `Perfil.jsx` | ID da Matrícula na URL | Cancelar inscrição do curso em tempo real. |
+| **DELETE**| `/api/usuarios/{id}` | `Perfil.jsx` | ID do Usuário na URL | Excluir a conta e limpar dados locais de login. |
+
+---
+
+## 🔒 Camada de Segurança e Resiliência do Cliente
+1. **Instância Centralizada:** Toda a configuração base de caminhos e cabeçalhos padrão é gerenciada em `src/services/api.js`.
+2. **Gerenciamento de Estado Síncrono:** As respostas bem-sucedidas dos endpoints de autenticação disparam atualizações no `AuthContext`, garantindo que componentes distantes (como a `Navbar`) saibam imediatamente quando ocultar os botões de "Entrar" e exibir o menu do "Perfil".
+
 
 ## 🔗 Conectar com Backend
 
@@ -144,63 +169,4 @@ Certifique-se de que o backend está rodando em `http://localhost:8080`
 - ✅ Componentes reutilizáveis
 - ✅ Página 404
 
-## 🌐 Responsividade
 
-A aplicação é totalmente responsiva e funciona em:
-- Desktop (1920px+)
-- Tablet (768px - 1024px)
-- Mobile (320px - 767px)
-
-## 🐛 Troubleshooting
-
-### Erro: "Cannot find module 'react'"
-```bash
-npm install
-```
-
-### Erro: "Port 5173 is already in use"
-```bash
-npm run dev -- --port 3000
-```
-
-### Tailwind CSS não funciona
-- Verifique se `@tailwind` está em `src/index.css`
-- Reinicie o servidor: `npm run dev`
-
-### Erro ao conectar com backend
-- Verifique se backend está rodando em `http://localhost:8080`
-- Verifique a URL em `src/services/api.js`
-
-## 📚 Extensões VS Code Recomendadas
-
-- ES7+ React/Redux/React-Native snippets
-- Prettier - Code formatter
-- ESLint
-- Tailwind CSS IntelliSense
-- PostCSS Language Support
-
-## 🚀 Deploy
-
-Para fazer deploy em produção:
-
-```bash
-# Build
-npm run build
-
-# Isso cria uma pasta 'dist' com os arquivos prontos para deploy
-```
-
-## 📞 Suporte
-
-Para mais informações, consulte:
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Docs](https://tailwindcss.com/)
-- [Vite Docs](https://vitejs.dev/)
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT.
-
----
-
-**Desenvolvido com ❤️ para educação digital**
