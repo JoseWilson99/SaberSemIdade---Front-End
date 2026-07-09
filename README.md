@@ -167,6 +167,5 @@ Certifique-se de que o backend está rodando em `http://localhost:8080`
 - ✅ Requisições HTTP com Axios
 - ✅ Design com Tailwind CSS
 - ✅ Componentes reutilizáveis
-- ✅ Página 404
 
 
