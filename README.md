@@ -41,38 +41,71 @@ saber-sem-idade-frontend-completo/
 │   │   │   ├── Button.jsx
 
 │   │   │   └── Card.jsx
+
 │   │   ├── CourseCard.jsx
+
 │   │   ├── Footer.jsx
+
 │   │   ├── Navbar.jsx
+
 │   │   └── ScrollToTop.jsx
+
 │   ├── 📁 context/           # Estados globais compartilhados
+
 │   │   └── AuthContext.jsx   # Contexto global de autenticação
+
 │   ├── 📁 hooks/             # Custom Hooks reutilizáveis
+
 │   │   └── useFetch.js       # Abstração de requisições HTTP
+
 │   ├── 📁 pages/             # Telas e views da plataforma
+
 │   │   ├── Cadastro.jsx
+
 │   │   ├── Contato.jsx
+
 │   │   ├── CursoAB.jsx
+
 │   │   ├── CursoHDB.jsx
+
 │   │   ├── CursoWM.jsx
+
 │   │   ├── Home.jsx
+
 │   │   ├── Login.jsx
+
 │   │   ├── Perfil.jsx
+
 │   │   ├── SobreCurso.jsx
+
 │   │   └── SobreNos.jsx
+
 │   ├── 📁 services/          # Configuração de clientes de API
+
 │   │   └── api.js            # Instância centralizada do Axios/Fetch
+
 │   ├── App.css               # Estilizações globais complementares
+
 │   ├── App.jsx               # Roteador central e distribuidor do Context
+
 │   ├── index.css             # Importação e diretivas do Tailwind CSS
+
 │   └── main.jsx              # Ponto de entrada do React (DOM Renderer)
+
 ├── .gitignore                # Arquivo de descarte de arquivos para o Git
+
 ├── index.html                # Estrutura HTML primária da Single Page Application
+
 ├── package-lock.json         # Histórico de versões exatas das dependências
+
 ├── package.json              # Manifesto do projeto e scripts de execução
+
 ├── postcss.config.js         # Pré-processador de estilos do CSS
+
 ├── README.md                 # Documentação oficial do repositório
+
 ├── tailwind.config.js        # Configurações de cores e fontes customizadas do Tailwind
+
 └── vite.config.js            # Configurações do empacotador Vite
 
 ---
