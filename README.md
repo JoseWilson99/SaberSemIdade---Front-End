@@ -29,13 +29,17 @@ saber-sem-idade-frontend-completo/
 ├── 📁 node_modules/          # Dependências instaladas do projeto
 
 ├── 📁 public/
-
+|
 │   └── 📁 imagens/           # Ativos físicos (Logos e placeholders locais)
-
+|
 ├── 📁 src/
+|
 │   ├── 📁 components/        # Componentes globais estruturais
+|
 │   │   ├── 📁 ui/            # Componentes atômicos reutilizáveis de interface
+|
 │   │   │   ├── Button.jsx
+|
 │   │   │   └── Card.jsx
 │   │   ├── CourseCard.jsx
 │   │   ├── Footer.jsx
