@@ -25,8 +25,8 @@ Abaixo está o mapeamento completo do diretório do sistema conforme a arquitetu
 
 text
 saber-sem-idade-frontend-completo/
-├── 📁 node_modules/          # Dependências instaladas do projeto
 
+├── 📁 node_modules/          # Dependências instaladas do projeto
 ├── 📁 public/
 │   └── 📁 imagens/           # Ativos físicos (Logos e placeholders locais)
 ├── 📁 src/
