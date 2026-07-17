@@ -7,10 +7,8 @@ export default function Navbar() {
   const [location, setLocation] = useLocation();
   const { usuario, logoutGlobal } = useContext(AuthContext);
 
-  // Configuração para o modal personalizado de Logout
   const [modalLogoutAberto, setModalLogoutAberto] = useState(false);
 
-  // Monitora a URL para abrir o modal caso o usuário venha de um logout recente
   useEffect(() => {
     if (location.includes('?logout=success')) {
       setModalLogoutAberto(true);
@@ -18,17 +16,16 @@ export default function Navbar() {
   }, [location]);
 
   const dispararSair = () => {
-    logoutGlobal(); // Reseta o estado global na hora
+    logoutGlobal(); 
     localStorage.removeItem("usuario");
     localStorage.removeItem("usuarioId");
     
-    // Redireciona imediatamente para a Home passando o parâmetro de sucesso
     setLocation("/?logout=success");
   };
 
   const fecharModalEIrParaHome = () => {
     setModalLogoutAberto(false);
-    setLocation("/"); // Limpa a URL de forma fluida
+    setLocation("/"); 
   };
 
   return (
@@ -105,7 +102,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* MODAL ELEGANTE CENTRALIZADO DE LOGOUT (AGORA INTEGRADO) */}
       {modalLogoutAberto && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in select-none">
           <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-2xl border border-gray-100 text-center space-y-4">
