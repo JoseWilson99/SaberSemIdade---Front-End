@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// CORREÇÃO: Adicionado o 'Link' na importação do wouter abaixo!
 import { Link, useLocation } from "wouter";
 
 export default function Cadastro() {
@@ -9,7 +8,6 @@ export default function Cadastro() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
-  // Configuração para o modal unificado
   const [modalConfig, setModalConfig] = useState({ 
     isOpen: false, 
     titulo: '', 
@@ -36,16 +34,15 @@ export default function Cadastro() {
         throw new Error("Erro ao cadastrar");
       }
 
-      // Configura sucesso e limpa campos
       setModalConfig({
         isOpen: true,
         titulo: "✨ Cadastro Concluído!",
         mensagem: "Sua conta foi criada perfeitamente. Vamos fazer seu primeiro login?",
         tipo: "sucesso",
         onConfirm: () => {
-          // Primeiro limpamos o estado do modal, garantindo que ele desmonte
+          
           setModalConfig(prev => ({ ...prev, isOpen: false }));
-          // Forçamos o wouter a mudar a rota no estado global do React
+
           setLocation("/login");
         }
       })
@@ -139,7 +136,6 @@ export default function Cadastro() {
           </button>
         </form>
 
-        {/* CORREÇÃO: Estrutura do link de navegação limpa e funcional */}
         <p className="mt-6 text-center text-gray-600 font-roboto text-sm">
           Já tem uma conta?{' '}
           <Link href="/login">
@@ -151,7 +147,6 @@ export default function Cadastro() {
 
       </div>
 
-      {/* MODAL ELEGANTE CENTRALIZADO DE CADASTRO */}
       {modalConfig.isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl border border-gray-100 text-center space-y-4">
