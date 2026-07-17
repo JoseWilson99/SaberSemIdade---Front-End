@@ -27,7 +27,6 @@ export default function CourseCard({ curso, onEnroll }) {
   const imagemCurso = imagens[curso.id] || '/imagens/logo.png'
   const rotaDestino = rotas[curso.id]
 
-  // FUNÇÃO RESTRUTURADA PARA LIDAR COM MATRÍCULA JÁ EXISTENTE
   async function matricularCurso(cursoId, usuarioId) {
     try {
       const resposta = await fetch("http://localhost:8080/api/matriculas", {
@@ -108,7 +107,7 @@ export default function CourseCard({ curso, onEnroll }) {
     <div className="bg-white rounded-lg shadow-soft hover:shadow-medium transition-all duration-300 overflow-hidden border border-creme-card flex flex-col justify-between">
       
       <div>
-        {/* IMAGEM */}
+
         <div className="h-48 overflow-hidden relative">
           <img
             src={imagemCurso}
@@ -120,7 +119,6 @@ export default function CourseCard({ curso, onEnroll }) {
           </div>
         </div>
 
-        {/* CONTEÚDO */}
         <div className="p-6">
           <h3 className="text-xl font-bold mb-2 text-primary font-montserrat">
             {curso.titulo}
@@ -131,7 +129,6 @@ export default function CourseCard({ curso, onEnroll }) {
         </div>
       </div>
 
-      {/* FOOTER E QUADRO DE AVISO FORMATADO */}
       <div className="px-6 pb-6 mt-auto space-y-3">
         {mensagemStatus.exibir && (
           <div className={`mb-2 border rounded-xl p-3 text-center transition-all ${
@@ -143,7 +140,6 @@ export default function CourseCard({ curso, onEnroll }) {
           </div>
         )}
 
-        {/* BOTÃO: SOBRE O CURSO - PADRONIZADO LARGURA */}
         <button 
           onClick={() => setLocation(`/sobre-curso/${curso.id}`)}
           className="w-full bg-secondary hover:bg-secondary-light text-white font-bold py-2.5 rounded-full text-sm transition-colors border-none shadow-md flex items-center justify-center gap-1 cursor-pointer"
@@ -151,7 +147,6 @@ export default function CourseCard({ curso, onEnroll }) {
           📖 Sobre o Curso
         </button>
 
-        {/* BOTÃO: MATRICULE-SE / ACESSE - TEXTO E LARGURA ATUALIZADOS */}
         <button 
           onClick={handleEnroll}
           className="w-full bg-secondary hover:bg-secondary-light text-white font-bold py-2.5 rounded-full text-sm transition-colors border-none shadow-md flex items-center justify-center gap-1 cursor-pointer"
