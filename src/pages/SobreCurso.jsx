@@ -35,7 +35,6 @@ export default function SobreCurso() {
   const dados = detalhesCursos[idChave]
   const rotasFinais = { 1: '/curso-hdb', 2: '/curso-wm', 3: '/curso-ab' }
 
-  // NOVA LÓGICA COM ALERTAS DE CASOS DE CADASTRO
   async function executarMatriculaComAlerta() {
     const usuarioSalvo = localStorage.getItem("usuario")
     
@@ -76,7 +75,7 @@ export default function SobreCurso() {
         })
         setTimeout(() => setLocation(rotasFinais[idChave]), 2000)
       } else {
-        // Se cair aqui, significa que o banco de dados barrou porque ele já está matriculado
+    
         setMensagemStatus({
           exibir: true,
           tipo: 'aviso',
@@ -86,7 +85,6 @@ export default function SobreCurso() {
       }
     } catch (erro) {
       console.error(erro)
-      // Fallback amigável de rede
       setLocation(rotasFinais[idChave])
     }
   }
@@ -95,7 +93,6 @@ export default function SobreCurso() {
     <div className="bg-creme min-h-screen py-12 px-4 font-roboto">
       <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-soft border border-creme-card overflow-hidden">
         
-        {/* Banner Superior */}
         <div className="bg-primary text-white p-8 md:p-12 relative">
           <button 
             onClick={() => setLocation('/')}
@@ -110,7 +107,6 @@ export default function SobreCurso() {
           <p className="text-creme-card font-light text-lg">{dados.subtitulo}</p>
         </div>
 
-        {/* Bloco de Conteúdo */}
         <div className="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-primary font-montserrat">O que você vai aprender?</h3>
@@ -121,7 +117,6 @@ export default function SobreCurso() {
           </div>
         </div>
 
-        {/* Cronograma */}
         <div className="px-8 md:px-12 pb-8">
           <div className="bg-creme/40 border border-creme-card rounded-2xl p-6">
             <h3 className="text-lg font-bold text-primary font-montserrat mb-4">📌 Conteúdo Programático Simplificado:</h3>
@@ -135,7 +130,6 @@ export default function SobreCurso() {
           </div>
         </div>
 
-        {/* Seção Inferior com Alerta Integrado */}
         <div className="bg-creme-card p-6 flex flex-col items-center gap-4 border-t border-creme-card">
           
           {mensagemStatus.exibir && (
