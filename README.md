@@ -1,16 +1,16 @@
-# 🎓 Saber Sem Idade - Frontend React
+# Saber Sem Idade - Front-end React
 
 Plataforma de educação digital focada em habilidades essenciais para o dia a dia (ODS 4 - Educação de Qualidade).
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
-**Saber Sem Idade** é uma plataforma educacional que oferece cursos sobre:
+Saber Sem Idade é uma plataforma educacional que oferece cursos sobre:
 - Habilidades digitais básicas (computador, internet, redes sociais)
 - Uso de WhatsApp e aplicativos de mensagem
 - Educação financeira (caixas eletrônicos, aplicativos de banco)
 - Níveis: Básico, Médio e Avançado
 
-## 🚀 Como Começar
+## Como Começar
 
 ### Pré-requisitos
 - Node.js v18+ instalado
@@ -19,11 +19,11 @@ Plataforma de educação digital focada em habilidades essenciais para o dia a d
 
 ---
 
-## 📁 Estrutura de Arquivos do Projeto
+##  Estrutura de Arquivos do Projeto
 
 Abaixo está o mapeamento completo do diretório do sistema conforme a arquitetura implementada:
 
-```text
+text
 saber-sem-idade-frontend-completo/
 ├── 📁 node_modules/          # Dependências instaladas do projeto
 ├── 📁 public/
@@ -69,7 +69,7 @@ saber-sem-idade-frontend-completo/
 
 ---
 
-## 🗺️ Mapa de Consumo por Página
+## Mapa de Consumo por Página
 
 Abaixo está a relação de quais telas disparam requisições HTTP, seus respectivos métodos, payloads e finalidades na regra de negócio.
 
@@ -135,22 +135,21 @@ Abaixo está a relação de quais telas disparam requisições HTTP, seus respec
 
 ---
 
-## 🔒 Camada de Segurança e Resiliência do Cliente
+##  Camada de Segurança e Resiliência do Cliente
 1. **Instância Centralizada:** Toda a configuração base de caminhos e cabeçalhos padrão é gerenciada em `src/services/api.js`.
 2. **Gerenciamento de Estado Síncrono:** As respostas bem-sucedidas dos endpoints de autenticação disparam atualizações no `AuthContext`, garantindo que componentes distantes (como a `Navbar`) saibam imediatamente quando ocultar os botões de "Entrar" e exibir o menu do "Perfil".
 
 
-## 🔗 Conectar com Backend
+##  Conectar com Backend
 
 Edite o arquivo `src/services/api.js` e altere a URL da API:
 
-```javascript
+javascript
 const API_BASE_URL = 'http://localhost:8080/api'
-```
 
 Certifique-se de que o backend está rodando em `http://localhost:8080`
 
-## 📦 Dependências Principais
+## Dependências Principais
 
 - **React** - Biblioteca de UI
 - **Wouter** - Roteamento leve
@@ -158,7 +157,7 @@ Certifique-se de que o backend está rodando em `http://localhost:8080`
 - **Tailwind CSS** - Framework CSS
 - **Vite** - Build tool
 
-## 🎯 Funcionalidades
+## Funcionalidades
 
 - ✅ Página inicial responsiva
 - ✅ Listagem de cursos
