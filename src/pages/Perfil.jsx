@@ -268,7 +268,6 @@ export default function Perfil(){
         </div>
       </div>
 
-      {/* MODAL PARA OUTRAS AÇÕES DO PERFIL */}
       {modalConfig.isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl border border-creme-card text-center space-y-4">
