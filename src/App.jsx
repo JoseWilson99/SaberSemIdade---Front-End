@@ -1,5 +1,5 @@
 import { Router, Route } from 'wouter'
-import { AuthProvider } from './context/AuthContext' // Certifique-se de que o caminho está correto
+import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
