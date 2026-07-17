@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
-// --- CONFIGURAÇÃO DE IMAGENS LOCAIS (PASTA PUBLIC) ---
 const imagensConfig = {
   aula1: [
     "/imagens/Aplicativo-1.jpg",
@@ -61,7 +60,6 @@ function CardAula({ numero, titulo, ouvirdId, playingId, falarTexto, children, i
 
   return (
     <div className="card max-w-none p-8" id={ouvirdId}>
-      {/* Cabeçalho do Card */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-100 pb-4 mb-6">
         <span className="text-sm font-bold bg-primary/10 text-primary px-4 py-1.5 rounded-full">
           Aula {numero} de 7 {telaAtual === "imagens" && `• Imagem ${imagemAtual + 1}`}
@@ -78,7 +76,6 @@ function CardAula({ numero, titulo, ouvirdId, playingId, falarTexto, children, i
         </button>
       </div>
 
-      {/* Área de Conteúdo */}
       <div className="flex items-center justify-between gap-4">
         <button 
           onClick={voltar}
@@ -198,7 +195,6 @@ export default function CursoAB() {
           Voltar para Nossos Cursos
         </button>
 
-        {/* Banner do Módulo */}
         <div className="bg-white rounded-3xl shadow-medium border border-gray-100 overflow-hidden">
           <div className="w-full h-60 md:h-64 overflow-hidden relative">
             <img 
@@ -220,7 +216,6 @@ export default function CursoAB() {
           </div>
         </div>
 
-        {/* LISTA DAS AULAS */}
         <div className="space-y-8">
 
           <CardAula numero={1} titulo="🏦 Aula 1 – O que é um aplicativo de banco?" ouvirdId="aula_ab_1" playingId={playingId} falarTexto={falarTexto} imagens={imagensConfig.aula1}>
@@ -296,7 +291,6 @@ export default function CursoAB() {
 
         </div>
 
-        {/* Exercícios de fixação */}
         <div className="card max-w-none p-8 space-y-4">
           <h2 className="text-xl font-bold font-montserrat text-primary flex items-center gap-2 border-b pb-3 border-gray-100 m-0">
             <span>🏆</span> Exercícios de Treino (Sem Movimentar Dinheiro)
@@ -309,7 +303,6 @@ export default function CursoAB() {
             <div className="p-3.5 bg-gray-50 rounded-xl border border-gray-200 md:col-span-2"><strong>Exercício 5:</strong> Consultar os lançamentos do seu extrato.</div>
           </div>
         </div>
-
       </div>
     </div>
   );
