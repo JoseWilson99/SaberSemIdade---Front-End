@@ -9,7 +9,6 @@ export default function Perfil(){
   const [usuario, setUsuario] = useState(null)
   const [matriculas, setMatriculas] = useState([])
 
-  // Estados para gerenciar o Modal de Confirmação customizado
   const [modalConfig, setModalConfig] = useState({
     isOpen: false,
     titulo: '',
@@ -83,11 +82,10 @@ export default function Perfil(){
   }
 
   function sair() {
-    logoutGlobal(); // 1. Limpa o estado da Navbar simultaneamente
+    logoutGlobal(); 
     localStorage.removeItem("usuario")
     localStorage.removeItem("usuarioId")
     
-    // 2. Redireciona na hora para a Home acionando o modal unificado com segurança
     setLocation("/?logout=success")
   }
 
@@ -124,7 +122,6 @@ export default function Perfil(){
   return (
     <div className="min-h-screen bg-[#e0F3CD] py-12 px-4 relative overflow-hidden selection:bg-secondary/20">
       
-      {/* Marcas d'água */}
       <div className="fixed top-1/2 left-4 md:left-12 text-8xl text-primary opacity-5 select-none pointer-events-none transform -translate-y-1/2 -rotate-12 hidden lg:block">
         🌿
       </div>
@@ -134,7 +131,6 @@ export default function Perfil(){
 
       <div className="max-w-4xl mx-auto space-y-8 relative z-10">
         
-        {/* CARD CABEÇALHO DO PERFIL */}
         <div className="bg-white p-8 rounded-3xl shadow-xl border border-creme-card flex flex-col md:flex-row items-center gap-6">
           <div className="w-20 h-20 bg-secondary text-white rounded-full flex items-center justify-center text-3xl font-bold font-montserrat shadow-md shrink-0">
             {inicialNome}
@@ -167,7 +163,6 @@ export default function Perfil(){
           </div>
         </div>
 
-        {/* CARD MEUS CURSOS */}
         <div className="bg-white p-8 rounded-3xl shadow-xl border border-creme-card">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 border-b border-creme-card pb-4">
             <div className="flex items-center gap-2">
@@ -187,8 +182,7 @@ export default function Perfil(){
                   }
                 }, 100);
               }}
-              className="bg-secondary text-white hover:bg-secondary-light font-bold text-sm px-5 py-2 rounded-full w-full sm:w-auto text-center shadow-xl border-none cursor-pointer"
-            >
+              className="bg-secondary text-white hover:bg-secondary-light font-bold text-sm px-5 py-2 rounded-full w-full sm:w-auto text-center shadow-xl border-none cursor-pointer">
               Conhecer Cursos
             </Button>
           </div>
