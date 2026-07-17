@@ -1,10 +1,10 @@
 import { useState, useContext } from 'react'
 import { Link, useLocation } from 'wouter'
-import { AuthContext } from '../context/AuthContext' // Importa o contexto
+import { AuthContext } from '../context/AuthContext' 
 
 export default function Login() {
   const [, setLocation] = useLocation()
-  const { loginGlobal } = useContext(AuthContext) // Puxa a função de login global
+  const { loginGlobal } = useContext(AuthContext) 
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -45,7 +45,6 @@ export default function Login() {
 
       const usuario = await respuesta.json()
 
-      // Salva no contexto global
       loginGlobal(usuario)
 
       console.log("Usuário logado:", usuario)
@@ -76,7 +75,6 @@ export default function Login() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#e0F3CD] px-4 py-12 relative overflow-hidden select-none">
       
-      {/* Marcas d'água decorativas integradas ao ecossistema do projeto */}
       <div className="fixed top-1/2 left-4 md:left-12 text-8xl text-primary opacity-5 select-none pointer-events-none transform -translate-y-1/2 -rotate-12 hidden lg:block">
         🌿
       </div>
@@ -136,7 +134,6 @@ export default function Login() {
         </p>
       </div>
 
-      {/* MODAL DE ALERTA PERSONALIZADO */}
       {modalConfig.isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
           <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl border border-gray-100 text-center space-y-4">
