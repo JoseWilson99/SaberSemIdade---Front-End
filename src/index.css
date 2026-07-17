@@ -6,7 +6,7 @@
   --font-montserrat: 'Montserrat', sans-serif;
   --font-roboto: 'Roboto', sans-serif;
   
-  /* NOVA PALETA INTEGRADA - SABER SEM IDADE */
+ 
   --color-primary: #2d5a3f;          /* Verde Principal Escuro */
   --color-primary-light: #427a58;    /* Verde Médio */
   --color-primary-dark: #1e3d2a;     /* Verde Bem Escuro */
@@ -22,9 +22,9 @@
   --color-white: #ffffff;
   --color-black: #1a1a1a;
   
-  /* Cores de fundo suaves baseadas no design */
-  --color-gray-50:  #fcfaf4;          /* Fundo Creme do site */
-  --color-gray-100: #f2ede0;         /* Tom de card claro */
+
+  --color-gray-50:  #fcfaf4;          
+  --color-gray-100: #f2ede0;        
   --color-gray-200: #e3dac9;
   --color-gray-300: #cbd5e1;
   --color-gray-400: #94a3b8;
@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--color-primary); /* Títulos herdam o verde escuro */
+  color: var(--color-primary); 
 }
 
 h1 { font-size: 2.5rem; }
@@ -124,7 +124,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn-primary {
-  background-color: var(--color-secondary); /* Dourado como ação principal */
+  background-color: var(--color-secondary); 
   color: white;
 }
 
@@ -133,7 +133,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn-secondary {
-  background-color: var(--color-primary); /* Verde como secundário */
+  background-color: var(--color-primary); 
   color: white;
 }
 
@@ -164,7 +164,6 @@ input:focus, textarea:focus, select:focus {
   box-shadow: 0 8px 30px rgba(45, 90, 63, 0.08);
 }
 
-/* Modificadores extras mantidos */
 .grid-responsive {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
