@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
-// --- CONFIGURAÇÃO DE IMAGENS LOCAIS (PASTA PUBLIC) ---
 const imagensConfig = {
   aula1: [
     "/imagens/Whatsapp-4.jpg",
@@ -64,7 +63,6 @@ function CardAula({ numero, titulo, ouvirdId, playingId, falarTexto, children, i
 
   return (
     <div className="card max-w-none p-8" id={ouvirdId}>
-      {/* Cabeçalho do Card */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-100 pb-4 mb-6">
         <span className="text-sm font-bold bg-primary/10 text-primary px-4 py-1.5 rounded-full">
           Aula {numero} de 7 {telaAtual === "imagens" && `• Imagem ${imagemAtual + 1}`}
@@ -80,8 +78,7 @@ function CardAula({ numero, titulo, ouvirdId, playingId, falarTexto, children, i
           {playingId === ouvirdId ? '⏹️ Parar Leitura' : '🔊 Ouvir Aula'}
         </button>
       </div>
-
-      {/* Área de Conteúdo */}
+      
       <div className="flex items-center justify-between gap-4">
         <button 
           onClick={voltar}
@@ -201,7 +198,6 @@ export default function CursoWM() {
           Voltar para Nossos Cursos
         </button>
 
-        {/* Banner do Módulo */}
         <div className="bg-white rounded-3xl shadow-medium border border-gray-100 overflow-hidden">
           <div className="w-full h-60 md:h-64 overflow-hidden relative">
             <img 
@@ -223,7 +219,6 @@ export default function CursoWM() {
           </div>
         </div>
 
-        {/* LISTA DAS AULAS */}
         <div className="space-y-8">
 
           <CardAula numero={1} titulo="💬 Aula 1 – O que é WhatsApp?" ouvirdId="aula_wm_1" playingId={playingId} falarTexto={falarTexto} imagens={imagensConfig.aula1}>
@@ -305,7 +300,6 @@ export default function CursoWM() {
 
         </div>
 
-        {/* Exercícios de fixação */}
         <div className="card max-w-none p-8 space-y-4">
           <h2 className="text-xl font-bold font-montserrat text-primary flex items-center gap-2 border-b pb-3 border-gray-100 m-0">
             <span>🏆</span> Exercícios Finais de Fixação
