@@ -42,7 +42,6 @@ export default function Home() {
     fetchCursos()
   }, [])
 
-  // Componente que garante o recorte arredondado perfeito da logo
   const LogoOficialProjeto = () => (
     <div className="w-44 h-44 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-secondary/30 overflow-hidden mx-auto lg:mx-0 shrink-0">
       <img 
@@ -57,11 +56,9 @@ export default function Home() {
   return (
     <div className="w-full bg-creme">
       
-      {/* Hero Section - Início com Logo e Alinhamento à Esquerda/Centro */}
       <section className="bg-primary text-white py-12 md:py-14 relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-center gap-y-8 gap-x-16 relative z-10">
           
-          {/* Texto e botões alinhados à esquerda e ligeiramente suspensos */}
           <div className="text-center lg:text-left space-y-4 max-w-2xl -mt-2 md:-mt-4">
             <h1 className="text-5xl font-bold font-montserrat text-white tracking-tight">
               Saber Sem Idade 
@@ -71,7 +68,6 @@ export default function Home() {
               Cursos práticos e acessíveis para facilitar o seu dia a dia.
             </p>
             
-            {/* Botões ajustados para alinhar à esquerda no desktop */}
             <div className="flex justify-center lg:justify-start gap-4 flex-wrap pt-2">
               <a href="/#nossos-cursos">
                 <Button 
@@ -91,15 +87,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Logo inserida na lateral direita (desktop) */}
           <div className="flex justify-center shrink-0">
             <LogoOficialProjeto />
           </div>
-
         </div>
       </section>
 
-      {/* Seção Benefícios */}
       <section className="py-16 px-4 bg-[#e0F3CD]">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold font-montserrat text-center mb-12 text-primary">
@@ -128,7 +121,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Seção Cursos */}
       <section id="nossos-cursos" className="py-16 px-4 bg-[#e0F3CD] border-t border-creme-card">
         <div className="container mx-auto">
           <h2 className="text-4xl font-bold font-montserrat text-center mb-2 text-primary">
@@ -155,11 +147,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Final - Fim com Logo e Alinhamento Simétrico correspondente */}
       <section className="bg-primary text-white py-12 md:py-14 relative overflow-hidden border-t-4 border-secondary">
         <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-center gap-y-8 gap-x-16">
           
-          {/* Texto e botão alinhados simetricamente à esquerda */}
           <div className="text-center lg:text-left space-y-4 max-w-2xl -mt-2 md:-mt-4">
             <h2 className="text-4xl font-bold font-montserrat text-white tracking-tight">
               Nunca é tarde para aprender.
@@ -178,7 +168,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Logo inserida na lateral direita da faixa final */}
           <div className="flex justify-center shrink-0">
             <LogoOficialProjeto />
           </div>
