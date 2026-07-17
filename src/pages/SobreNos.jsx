@@ -9,7 +9,6 @@ function SobreNos() {
   const lerPagina = () => {
     speechSynthesis.cancel();
 
-    // Texto configurado estritamente para ler do bloco Nossa História até o fim do propósito
     const texto = `
     Nossa História.
     Vivemos em uma época em que a tecnologia está presente em praticamente todos os momentos do nosso dia a dia. Fazer uma ligação, enviar uma mensagem, marcar uma consulta ou realizar um pagamento pelo celular tornou-se algo comum. No entanto, para grande parte da população mais velha, essas tarefas cotidianas ainda representam um grande desafio.
@@ -35,7 +34,6 @@ function SobreNos() {
     speechSynthesis.cancel();
   };
 
-  // Componente corrigido: Garante o recorte perfeito e arredondado da logo quadrada
   const LogoOficialProjeto = () => (
     <div className="w-44 h-44 bg-white rounded-full flex items-center justify-center shadow-xl border-4 border-secondary/30 overflow-hidden mx-auto lg:mx-0 shrink-0">
       <img 
@@ -50,12 +48,11 @@ function SobreNos() {
   return (
     <div className="bg-creme min-h-screen font-roboto selection:bg-secondary/20">
 
-      {/* Banner Inicial - Ajustado: Centralizado e aproximado igual à faixa de baixo */}
       <section className="bg-primary text-white py-12 md:py-14 relative overflow-hidden">
         <div className="absolute right-10 bottom-0 text-9xl opacity-10 select-none pointer-events-none transform rotate-12">🌿</div>
         
         <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-center gap-y-8 gap-x-16">
-          {/* Texto centralizado no fluxo geral, ligeiramente suspenso e mais perto da imagem */}
+
           <div className="text-left space-y-4 max-w-2xl -mt-2 md:-mt-4">
             <h1 className="text-5xl font-black font-montserrat tracking-tight">
               Sobre Nós
@@ -71,7 +68,6 @@ function SobreNos() {
         </div>
       </section>
 
-      {/* Conteúdo Principal */}
       <section className="w-[94%] max-w-6xl mx-auto px-4 py-12">
         <div className="bg-white rounded-3xl shadow-soft border border-creme-card p-8 lg:p-12">
           
@@ -80,7 +76,6 @@ function SobreNos() {
               Nossa História
             </h2>
 
-            {/* Botões de Leitura */}
             <div className="flex flex-wrap items-center gap-3">
               <button
                 onClick={lerPagina}
@@ -97,10 +92,8 @@ function SobreNos() {
             </div>
           </div>
 
-          {/* Blocos de Parágrafos Intercalados */}
           <div className="space-y-16 text-gray-700">
             
-            {/* Bloco 1: O Desafio Inicial */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
                 <p style={estiloParagrafo} className="text-justify font-light">
@@ -117,7 +110,6 @@ function SobreNos() {
               </div>
             </div>
 
-            {/* Bloco 2: O Nascimento do Projeto */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="h-64 bg-creme/50 rounded-2xl overflow-hidden border border-creme-card flex items-center justify-center shadow-sm lg:order-last">
                 <img 
@@ -134,7 +126,6 @@ function SobreNos() {
               </div>
             </div>
 
-            {/* Bloco 3: Nosso Propósito */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <div className="space-y-4">
                 <p style={estiloParagrafo} className="text-justify font-light">
@@ -159,7 +150,6 @@ function SobreNos() {
         </div>
       </section>
 
-      {/* Faixa Final de Compromisso */}
       <section className="bg-primary py-12 md:py-14 relative overflow-hidden border-t-4 border-secondary">
         <div className="absolute left-6 top-6 text-7xl opacity-5 select-none pointer-events-none">🍃</div>
         
